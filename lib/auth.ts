@@ -37,7 +37,7 @@ export async function getSession(): Promise<Session | null> {
 
   try {
     const verified = await jwtVerify(token, secret)
-    return verified.payload as Session
+    return verified.payload as unknown as Session
   } catch (err) {
     return null
   }
